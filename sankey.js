@@ -94,7 +94,7 @@
                         };
                 };
 
-      var units = "";
+      var units = "Page Views";
 
       var formatNumber = d3.format(",.0f"),    // zero decimal places
           format = function(d) { return formatNumber(d) + " " + units; },
