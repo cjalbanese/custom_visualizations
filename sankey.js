@@ -2,6 +2,7 @@
 // personally, I just pasted that code into the same ~/looker/plugins/visualizations 
 // directory as sankey-plugin.js
 
+
 (function() {
 
 
@@ -93,7 +94,7 @@
                         };
                 };
 
-      var units = "Page Views";
+      var units = "";
 
       var formatNumber = d3.format(",.0f"),    // zero decimal places
           format = function(d) { return formatNumber(d) + " " + units; },
@@ -252,8 +253,10 @@
       // the function for moving the nodes
         function dragmove(d) {
           d3.select(this).attr("transform", 
-              "translate(" + d.x + "," + (
-                      d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))
+              "translate(" + (
+                   d.x = Math.max(0, Math.min(width - d.dx, d3.event.x))
+                ) + "," + (
+                         d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))
                   ) + ")");
           sankey.relayout();
           link.attr("d", path);
